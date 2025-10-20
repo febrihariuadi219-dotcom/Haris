@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Portofolio — Haris Nugraha</title>
+  <style>
+    :root{
+      --card-bg: rgba(255,255,255,0.92);
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;min-height:100vh;
+      display:flex;align-items:flex-start;justify-content:center;
+      padding:36px 18px;
+      background: linear-gradient(180deg,#f6f8fb,#eef3ff);
+      color:#111;
+      transition:background-color .6s ease;
+    }
+    .container{
+      width:100%;max-width:980px;
+      background:linear-gradient(180deg,rgba(255,255,255,.86),rgba(255,255,255,.82));
+      border-radius:14px;box-shadow:0 10px 30px rgba(10,10,10,.08);
+      padding:20px;
+      display:grid;grid-template-columns:1fr 320px;gap:18px;
+    }
+    header{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:56px;height:56px;border-radius:12px;background:rgba(0,0,0,.06);display:flex;align-items:center;justify-content:center;font-weight:800}
+    h1{font-size:20px;margin:0}
+    p.lead{margin:0;color:rgba(0,0,0,.6)}
+    button{background:var(--card-bg);border:1px solid rgba(0,0,0,.06);padding:8px 12px;border-radius:10px;cursor:pointer;font-weight:600}
+    .content{display:flex;flex-direction:column;gap:14px;padding-top:6px}
+    .projects,.experience{background:var(--card-bg);padding:12px;border-radius:12px}
+    .projects-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+    .project-card{padding:10px;border-radius:10px;background:#fff;border:1px solid rgba(0,0,0,.04)}
+    aside{display:flex;flex-direction:column;gap:12px}
+    .profile{padding:14px;border-radius:12px;background:rgba(255,255,255,.1);display:flex;flex-direction:column;gap:8px}
+    .avatar{width:82px;height:82px;border-radius:12px;background:rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;color:#222;border:1px solid rgba(0,0,0,.06)}
+    .meta{font-size:13px;color:rgba(0,0,0,.7)}
+    footer{grid-column:1 / -1;text-align:center;padding-top:6px;color:rgba(0,0,0,.55);font-size:13px}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">HN</div>
+        <div>
+          <h1>Haris Nugraha</h1>
+          <p class="lead">Mahasiswa FTI — "tidak ada reaksi kalo tidak ada aksi"</p>
+        </div>
+      </div>
+      <div>
+        <button id="btn-change">Ganti warna latar</button>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="projects">
+        <h2>Proyek (contoh)</h2>
+        <div class="projects-list">
+          <article class="project-card">
+            <div style="font-weight:700">Website Portofolio</div>
+            <div style="margin-top:8px;color:rgba(0,0,0,.65)">Portofolio sederhana menggunakan HTML, CSS, dan JavaScript.</div>
+          </article>
+          <article class="project-card">
+            <div style="font-weight:700">Aplikasi To-Do</div>
+            <div style="margin-top:8px;color:rgba(0,0,0,.65)">Aplikasi pencatat tugas dengan penyimpanan lokal (localStorage).</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="experience">
+        <h2>Pengalaman</h2>
+        <div class="xp-item" style="padding:10px;border-radius:10px;background:#fff;margin-bottom:8px">
+          <div style="font-weight:700">Mahasiswa Biasa — Fakultas Teknologi Informasi</div>
+          <div style="font-size:13px;color:rgba(0,0,0,.6)">2023 – Sekarang</div>
+          <div style="margin-top:6px;color:rgba(0,0,0,.7)">Menempuh pendidikan dan mempelajari dasar pemrograman serta teknologi informasi.</div>
+        </div>
+      </section>
+
+      <footer>© <span id="year"></span> — Portofolio sederhana</footer>
+    </main>
+
+    <aside>
+      <div class="profile">
+        <div style="display:flex;gap:12px;align-items:center">
+          <div class="avatar">HN</div>
+          <div>
+            <div style="font-weight:800">Haris Nugraha</div>
+            <div class="meta">Mahasiswa FTI</div>
+          </div>
+        </div>
+        <div class="meta">tidak ada reaksi kalo tidak ada aksi</div>
+      </div>
+
+      <div class="projects" style="padding:12px">
+        <strong>Skill</strong>
+        <ul style="margin:8px 0 0 18px;padding:0;color:rgba(0,0,0,.7)">
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>JavaScript</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+
+  <script>
+    function randomHex(){return '#' + Math.floor(Math.random()*0xFFFFFF).toString(16).padStart(6,'0');}
+    function setBg(){document.body.style.background = randomHex();}
+    document.getElementById('btn-change').addEventListener('click', setBg);
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
